@@ -70,4 +70,4 @@
 
 质量参考：`v2-to-v3.md`、`quality-checklist.md`、`single-source.md`。
 
-暂停点：必须用 AskUserQuestion 确认评审前 PRD 是否可提交。确认后写入 `100-成品.md` 或沿用现有 PRD 文件；未确认前不得当作最终评审稿。
+暂停点：必须通过结构化确认来确认评审前 PRD 是否可提交。确认后写入 `100-成品.md` 或沿用现有 PRD 文件；未确认前不得当作最终评审稿。

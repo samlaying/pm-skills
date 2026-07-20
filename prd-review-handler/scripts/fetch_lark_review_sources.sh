@@ -102,6 +102,16 @@ if [[ -z "$DOC" || -z "$OUT_DIR" ]]; then
   exit 2
 fi
 
+if [[ -n "$RUN_DATE" && ! "$RUN_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+  echo "ERROR: --date must use YYYY-MM-DD format." >&2
+  exit 2
+fi
+
+if [[ -z "$FILE_TYPE" || ! "$FILE_TYPE" =~ ^[A-Za-z0-9_-]+$ ]]; then
+  echo "ERROR: --file-type must contain only letters, numbers, '_' or '-'." >&2
+  exit 2
+fi
+
 if [[ "$SKIP_COMMENTS" -eq 1 && "$SKIP_DOC" -eq 1 ]]; then
   echo "ERROR: --skip-comments and --skip-doc cannot both be set." >&2
   exit 2
@@ -111,13 +121,13 @@ fi
 
 extract_token() {
   local value="$1"
-  if [[ "$value" =~ /docx/([A-Za-z0-9]+) ]]; then
+  if [[ "$value" =~ /docx/([A-Za-z0-9_-]+) ]]; then
     printf '%s\n' "${BASH_REMATCH[1]}"
-  elif [[ "$value" =~ /doc/([A-Za-z0-9]+) ]]; then
+  elif [[ "$value" =~ /doc/([A-Za-z0-9_-]+) ]]; then
     printf '%s\n' "${BASH_REMATCH[1]}"
-  elif [[ "$value" =~ /wiki/([A-Za-z0-9]+) ]]; then
+  elif [[ "$value" =~ /wiki/([A-Za-z0-9_-]+) ]]; then
     printf '%s\n' "${BASH_REMATCH[1]}"
-  elif [[ "$value" =~ ^[A-Za-z0-9]+$ ]]; then
+  elif [[ "$value" =~ ^[A-Za-z0-9_-]+$ ]]; then
     printf '%s\n' "$value"
   else
     printf '%s\n' ""

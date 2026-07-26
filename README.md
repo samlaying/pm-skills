@@ -32,6 +32,7 @@ agent 会自己 clone、复制、注册。
 | `prd-review-handler` | PRD 评审后处理评论、对比飞书最新版、写验收标准 | 反馈处理记录、修订版 PRD、验收标准、同步记录 |
 | `update-writer` | 写汇报、通知、进展同步、风险通报 | 汇报/通知文档、飞书链接 |
 | `meeting-coach` | 复盘自己在会议/对话中的沟通表现 | 行为复盘报告、改进话术、行动清单 |
+| `ai-pm-prd-builder` | 设计 AI / Agent 产品，交互式引导产出 AI 产品 PRD（节点流、节点契约、模型选型、评测体系） | AI 产品 PRD、节点契约、选型与评测方案 |
 
 ---
 
@@ -55,6 +56,9 @@ agent 会自己 clone、复制、注册。
 
 个人成长
   └─ meeting-coach（会议表现 → 行为复盘 + 改进话术）
+
+AI 产品设计
+  └─ ai-pm-prd-builder（产品想法 → 节点流/契约/选型/评测 → AI 产品 PRD）
 ```
 
 `_shared/workflow-rules.md` 是公共底座，统一处理：
@@ -94,6 +98,7 @@ rm -rf /tmp/pm-skills
 | `prd-review-handler` | 评审后处理反馈 |
 | `update-writer` | 写汇报/通知文档 |
 | `meeting-coach` | 复盘会议中的个人沟通表现 |
+| `ai-pm-prd-builder` | 设计 AI/大模型产品，写 AI 产品 PRD |
 ```
 
 ### Codex
